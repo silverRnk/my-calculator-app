@@ -1,8 +1,7 @@
 <nav>
     <ul>
-        <li>Calculator</li>
-        <li>Repository</li>
-        <li>Documentation</li>
+        <li><a href="/">Calculator</a></li>
+        <li><a href="https://github.com/silverRnk/my-calculator-app" target="_blank">Repository</a></li>
     </ul>
 </nav>
 
