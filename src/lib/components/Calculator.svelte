@@ -37,16 +37,27 @@
     .then(response => {
         response.json()
         .then(value => {
+          /**
+           * @type string
+          */
           display = value.answer
+          calculator.enterAnInput('CE')
+          display.split("").forEach(char => {
+            calculator.enterAnInput(char)
+          })
         })
     }).catch(err => {
       console.log(err)
     })
   }
 
+  /**
+   * 
+   * @param {string} value
+   */
   function buttonHandler(value) {
-    calculator.enterAnInput = value;
-    display = calculator.getExpression;
+    calculator.enterAnInput(value);
+    display = calculator.displayExpression;
   }
 </script>
 

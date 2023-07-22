@@ -14,11 +14,12 @@ class SimpleCalculator {
    * @param {string} inputValue
    */
   #appendExpression(inputValue) {
-    console.log(inputValue.match(/[0-9]*/g) ? true : false);
+    // console.log(inputValue.match(/[0-9]*/g) ? true : false);
     if (
       inputValue.match(/[0-9.]/g) &&
       this.expression.length % 2 == 1
     ) {
+      //Validate if there is only one decimal
       if (
         inputValue === "." &&
         !this.expression[this.expression.length - 1].match(/[.]/g)
@@ -30,17 +31,17 @@ class SimpleCalculator {
           this.expression[this.expression.length - 1] + inputValue;
       }
     } else if (
-      inputValue.match(/[+=*/]/g) &&
+      inputValue.match(/[-+*/]/g) &&
       this.expression.length % 2 == 1
     ) {
       this.expression.push(inputValue);
     } else if (
-      inputValue.match(/[0-9.]/g) &&
+      inputValue.match(/[-0-9.]/g) &&
       this.expression.length % 2 == 0
     ) {
       this.expression.push(inputValue);
     }
-    console.log(this.expression);
+    // console.log(this.expression);
   }
 
   #backSpace() {
@@ -52,10 +53,10 @@ class SimpleCalculator {
   }
 
   parseToURLParams(){
-    return this.getExpression.replace('+', '%2B').replace('/', '%2F')
+    return this.displayExpression.replace('+', '%2B').replace('/', '%2F')
   }
 
-  get getExpression() {
+  get displayExpression() {
     return this.expression.join(" ");
   }
 
@@ -63,25 +64,36 @@ class SimpleCalculator {
    *
    * @param {string} calculatorInput
    */
-  set enterAnInput(calculatorInput) {
+  enterAnInput(calculatorInput) {
     if (calculatorInput === "CE") {
       this.expression = [];
     } else if (calculatorInput === "C") {
       this.expression.pop();
     } else if (calculatorInput === "BckSpc") {
       this.#backSpace();
-    } else if (calculatorInput === "=") {
-    } else {
+    }
+    else {
       this.#appendExpression(calculatorInput);
     }
   }
 
   /**
-   *
+   * Takes an array of string where each element is an alteration
+   * between a digit and an operator, return the evaluates the odd element
+   * based on the operation in the even element
+   * @static
    * @param {string[]} exp
+   * @return {string}
    */
   static calculate(exp) {
+
     let operator2, operand2, operator1, operand1;
+
+    //Sanitize the expression if end with an operator
+    if(exp.length % 2 == 0){
+      exp.pop()
+    }
+
     operand1 = exp.pop()
     operator1 = exp.pop()
     operand2 = exp.pop()
@@ -148,7 +160,7 @@ class SimpleCalculator {
       }
       
     }
-    return operand1;
+    return operand1 ?? "";
   }
 }
 
@@ -161,59 +173,4 @@ function CalculatorButton(label, value) {
   return { label, value };
 }
 
-class Expression {
-  constructor() {
-    this.operand = "";
-    this.operator = "";
-    /**
-     * @type Expression | null
-     */
-    this.nextExpression = null;
-  }
-
-  parseToJSON() {
-    return {
-      operand: this.operand,
-      operator: this.operator,
-      nextExpression: this.nextExpression?.parseToJSON(),
-    };
-  }
-
-  /**
-   *
-   * @param {string} inputNum
-   */
-  appendOperand(inputNum) {
-    this.operand = this.operand + inputNum;
-  }
-
-  /**
-   *
-   * @param {string} inputChar
-   */
-  appendOperator(inputChar) {
-    this.operator = this.operator + inputChar;
-  }
-
-  /**
-   *
-   * @param {Expression} expression
-   */
-  appendNextExpression(expression) {
-    this.nextExpression = expression;
-  }
-
-  /**
-   * if operator if not null remove operator
-   * if operator is null and operand is not null
-   */
-  backspace() {
-    if (this.operator) {
-      this.operator = "";
-    } else if (this.operand) {
-      this.operand = this.operand.slice(0, -1);
-    }
-  }
-}
-
-export { SimpleCalculator, CalculatorButton };
+export {SimpleCalculator, CalculatorButton}

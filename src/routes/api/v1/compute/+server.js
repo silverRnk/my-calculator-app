@@ -6,7 +6,6 @@ export async function GET({url}) {
   const expression = url.searchParams.get('exp') ?? ""
   let expressionArray = expression.split(" ")
 
-
   try{
     let answer;
     answer = SimpleCalculator.calculate(expressionArray);
