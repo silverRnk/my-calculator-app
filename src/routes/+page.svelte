@@ -1,2 +1,20 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import Calculator from "$lib/components/Calculator.svelte";
+
+
+</script>
+
+
+<div>
+    <Calculator/>
+</div>
+
+<style>
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
