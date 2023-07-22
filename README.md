@@ -25,7 +25,7 @@ this is where your `<Navbar>` resides.
 the main ui component of the app.
 
 ### `ui`
-    calculator has two inner components the `<Display/>` and the `<Button/>`
+calculator has two inner components the `<Display/>` and the `<Button/>`
 
 ### `<script>`
     To make the calculator work I had created an separate class in `src/lib/utils/Calculator.js` called `SimpleCalculator` this serve the logic of the calculator. For the documentation of the class [click here](https://github.com/silverRnk/my-calculator-apppp#class-simplecalculator)
