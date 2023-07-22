@@ -9,11 +9,17 @@ this initialize a variable called expression that would how the values of your e
 handle input to your calculator class
 ### Accepted string
 `CE` - clear the whole expression
+
 `C` - clear the current value
+
 `BckSpc` - clear the last character to the expression
+
 `=`
+
 `[0-9]` - Numeric input
+
 `.` - decimal
+
 `[+-/*]` - operators
 
 `return void`
@@ -28,7 +34,10 @@ return the expression that can be passed as [URL parameter](https://github.com/s
 
 `return string`
 
-## `Static `
+## `Static calculate(string[]):string`
+calculate the passed value
+
+`return string`
 
 # Rest Api
 
@@ -40,7 +49,9 @@ return the expression that can be passed as [URL parameter](https://github.com/s
 | exp   | 22 %FB 5 |
 
 note:because I use the url parameter to pass the value some symbols has to converted to code 
+
  `+` is `%2B`
+ 
  `/` is `%2F`
 
 ### Response Body
