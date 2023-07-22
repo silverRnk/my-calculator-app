@@ -37,7 +37,7 @@ Each button has an object coupled to it called `CalculatorButton`
             value:string
         }
     ```
-where each button has a click event that would called a `SimpleCalculator` method `enterAnInput`. At each click
+where each button has a click event that would call the `SimpleCalculator` method `enterAnInput`. At each click
 it would passed the coupled value from the button to the `enterAnInput`. An update to `display` would be made
 
 Once the user is satisfied with its input, it would now evaluate the expression. To do that it would send a `GET` request with the expression to Rest Api url `api/v1/compute` as a url parameter. [click here](https://github.com/silverRnk/my-calculator-app#rest-api)
@@ -45,8 +45,8 @@ Once the user is satisfied with its input, it would now evaluate the expression.
 ## `src/routes/api/v1/compute/+server.js`
 This contains the source code of your rest api
 
-Inside the `+server.js` contains a `GET` function to handle get request
-what it would do is to read the request url parameter, then turn the string into array with `" "` as the delimiter
+Inside the `+server.js` contains a `GET` function to handle get request.
+What it would do is to read the request url parameter, then turn the string into array with `" "` as the delimiter
  
 Once that is done our expression is now ready to be passed to `SimpleCalculator` `static` method `calculate()`
 this would evaluate the whole expression. then it would return a response to the user
@@ -98,7 +98,7 @@ calculate the passed value
 ### Query Params
 | Param | value |
 | ----- | ----- |
-| exp   | 22 %FB 5 |
+| exp   | 22 %2B 5 |
 
 note:because I use the url parameter to pass the value some symbols has to converted to code 
 
@@ -109,7 +109,7 @@ note:because I use the url parameter to pass the value some symbols has to conve
 ### Response Body
 ```
 {
-    answer:22
+    answer:27
 }
 ```
 
