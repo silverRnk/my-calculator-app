@@ -55,7 +55,7 @@ this would evaluate the whole expression. then it would return a response to the
 this class serves as the logic for the Calculator App
 
 ## constructor()
-this initialize a variable called expression that would how the values of your expression
+this initialize a variable called expression that would hold the values of your expression
 
 ## enterInput(inputVal: string) : void
 handle input to your calculator class
@@ -76,12 +76,12 @@ handle input to your calculator class
 
 `return void`
 
-## `getExpression():string`
+## `displayExpression():string`
     return the whole expression in a string format
 
 `return string`
 
-## `toURLParams():string`
+## `parseToURLParams():string`
 return the expression that can be passed as [URL parameter](https://github.com/silverRnk/my-calculator-app#query-params)
 
 `return string`
