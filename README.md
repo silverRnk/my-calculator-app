@@ -24,7 +24,7 @@ handle input to your calculator class
 `return string`
 
 ## `toURLParams():string`
-return the expression that can be passed as [URL parameter](https://github.com/silverRnk/my-calculator-app#Query-Params)
+return the expression that can be passed as [URL parameter](https://github.com/silverRnk/my-calculator-app#query-params)
 
 `return string`
 
