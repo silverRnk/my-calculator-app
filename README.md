@@ -28,7 +28,7 @@ the main ui component of the app.
 calculator has two inner components the `<Display/>` and the `<Button/>`
 
 ### `<script>`
-To make the calculator work I had created an separate class in `src/lib/utils/Calculator.js` called `SimpleCalculator` this serve the logic of the calculator. For the documentation of the class [click here](https://github.com/silverRnk/my-calculator-apppp#class-simplecalculator)
+To make the calculator work I had created an separate class in `src/lib/utils/Calculator.js` called `SimpleCalculator` this serve the logic of the calculator. For the documentation of the class [click here](https://github.com/silverRnk/my-calculator-app#class-simplecalculator)
 
 Each button has an object coupled to it called `CalculatorButton`
     ```
@@ -40,7 +40,7 @@ Each button has an object coupled to it called `CalculatorButton`
 where each button has a click event that would called a `SimpleCalculator` method `enterAnInput`. At each click
 it would passed the coupled value from the button to the `enterAnInput`. An update to `display` would be made
 
-Once the user is satisfied with its input, it would now evaluate the expression. To do that it would send a `GET` request with the expression to Rest Api url `api/v1/compute` as a url parameter. [click here](https://github.com/silverRnk/my-calculator-apppp#rest-api)
+Once the user is satisfied with its input, it would now evaluate the expression. To do that it would send a `GET` request with the expression to Rest Api url `api/v1/compute` as a url parameter. [click here](https://github.com/silverRnk/my-calculator-app#rest-api)
 
 ## `src/routes/api/v1/compute/+server.js`
 This contains the source code of your rest api
