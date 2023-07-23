@@ -11,6 +11,6 @@ export async function GET({url}) {
     answer = SimpleCalculator.calculate(expressionArray);
     return json({answer:answer})
   }catch(e){
-    return json({error: 'Invalid'}, {status:401})
+    return json({error: 'Invalid Expression'}, {status:406})
   }
 }
